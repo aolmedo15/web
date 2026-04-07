@@ -105,4 +105,25 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("cd-secs").innerHTML = seconds < 10 ? '0' + seconds : seconds;
 
     }, 1000);
+
+    // Intersection Observer for Scroll Animations
+    const observerOptions = {
+        root: document.querySelector('.glass-panel'),
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const animateOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const scrollItems = document.querySelectorAll('.scroll-animate');
+    scrollItems.forEach(item => {
+        animateOnScroll.observe(item);
+    });
 });

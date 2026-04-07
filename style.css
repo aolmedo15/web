@@ -339,6 +339,51 @@ body {
     letter-spacing: 1px;
 }
 
+/* ===== Itinerary ===== */
+.itinerary-timeline {
+    width: 100%;
+    margin: 20px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.itinerary-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--color-gold);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    
+    /* Animation initial state */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.itinerary-time {
+    font-weight: 600;
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    min-width: 80px;
+    text-align: left;
+}
+
+.itinerary-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+    text-align: left;
+}
+
+/* Animation active state */
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ===== Image Carousel ===== */
 .carousel-container {
     position: relative;
